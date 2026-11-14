@@ -1,0 +1,14 @@
+{
+  "policies": [
+    {
+      "display_name": "payments-failover",
+      "template": "FAILOVER",
+      "ttl": 60,
+      "health_check_id": "ocid1.healthchecksmonitor.oc1..hc9",
+      "answers": [
+        {"name": "primary-a", "pool": "primary", "priority": 1, "enabled": true, "rdata": "192.0.2.10"},
+        {"name": "backup-a", "pool": "backup", "priority": 2, "enabled": true, "rdata": "192.0.2.20"}
+      ]
+    }
+  ]
+}

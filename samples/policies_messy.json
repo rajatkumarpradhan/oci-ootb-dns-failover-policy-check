@@ -1,0 +1,24 @@
+{
+  "policies": [
+    {
+      "display_name": "payments-failover",
+      "template": "FAILOVER",
+      "ttl": 3600,
+      "health_check_id": null,
+      "answers": [
+        {"name": "primary-a", "pool": "primary", "priority": 1, "enabled": true, "rdata": "192.0.2.10"},
+        {"name": "backup-disabled", "pool": "backup", "priority": 3, "enabled": false, "rdata": "192.0.2.20"}
+      ]
+    },
+    {
+      "display_name": "reports-failover",
+      "template": "FAILOVER",
+      "ttl": 120,
+      "health_check_id": "ocid1.healthchecksmonitor.oc1..hc1",
+      "answers": [
+        {"name": "primary-a", "pool": "primary", "priority": 1, "enabled": true, "rdata": "192.0.2.30"},
+        {"name": "secondary-a", "pool": "secondary", "priority": 1, "enabled": true, "rdata": "192.0.2.31"}
+      ]
+    }
+  ]
+}
